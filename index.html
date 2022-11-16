@@ -42,6 +42,13 @@
           <div class="slot slot1"></div>
           <div class="slot slot2"></div>
           <div class="slot slot3"></div>
+          <div class="slot slot4"></div>
+          <div class="slot slot5"></div>
+          <div class="slot slot6"></div>
+          <div class="slot slot7"></div>
+          <div class="slot slot8"></div>
+          <div class="slot slot9"></div>
+          <div class="slot slot10"></div>
         </div>
 
         <div id="casino2" class="slotMachine">
@@ -108,7 +115,10 @@
     let firstNumber = 0;
     let secondNumber = 0;
     let thirdNumber = 0;
-    const maxNum = 248;
+    let maxNum = 248;
+    if (window.location.hash && !isNaN(window.location.hash.substring(1))) {
+      maxNum = Number(window.location.hash.substring(1));
+    }
     /**
      * Using solution in here https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range 
      */
@@ -141,7 +151,7 @@
       let resultArr = result.split("").map((num) => {
         return Number(num);
       })
-      
+
       firstNumber = resultArr[0];
       secondNumber = resultArr[1];
       thirdNumber = resultArr[2];
