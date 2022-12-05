@@ -6,6 +6,7 @@
 
 * {
   font-family: 'Roboto', sans-serif;
+  /* font-family: 'Bai Jamjuree'; */
 }
 
 body {
@@ -23,10 +24,6 @@ code {
   padding: 25px;
   background-color: rgba(245, 245, 245, 0.7);
   border-radius: 5px;
-}
-
-.well p {
-  font-size:
 }
 
 .btn-group-justified {
@@ -419,3 +416,137 @@ footer{
 }
 
 .github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
+
+/* popup */
+
+.overlay{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 68;
+    animation: fadeIn 0.2s linear;
+    display: none;
+  }
+  .overlay:active .popup{
+    border: 1px solid #000;
+  }
+  @keyframes show{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+  }
+  .popup{
+    z-index:1010;
+    width: 40vw;
+    height: 70vh;
+    position: fixed;
+    top: 10%;
+    right:50%;
+    transform: translateX(50%);
+    background: url("../img/popup-background.png");
+    background-size: cover;
+    border-radius: 5px;
+    animation: show 0.2s linear;
+    border-radius: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    display: none;
+  }
+  .popup__header {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+  }
+  .popup__content {
+    flex-direction: column;
+    display: flex;
+    height: 100%;
+    justify-content: space-around;
+  }
+  .popup__tile{
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 44px;
+  }
+  .lucky__people {
+    color: #094FB6;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    text-align: center;
+    margin-top: 200px;
+    
+  }
+  .lucky__people-info { 
+    margin-bottom: 30px;
+  }
+  .popup__lucky--fullname{
+    font-size: 30px;
+    text-align: center;
+    line-height: 38px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  .popup__lucky--short-name {
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 31px;
+  }
+  .pop__up-button{
+    display: flex;
+    justify-content: center;
+    color: #fff;
+  }
+  .pop__up-button-exit{
+    background-color: #fff;
+    color: #106FFF;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    margin: auto 10px;
+  }
+  .pop__up-button-exit:hover{
+    font-weight: 600;
+  }
+  .pop__up-button-ok{
+    margin-top: 25px;
+    background: #094FB6;
+    border-radius: 40px;
+    justify-content: center;
+    border: none;
+    color: var(--black-color);
+    font-size: 1.4rem;
+    transition: all linear 0.2s;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+    width: 130px;
+    height: 48px;
+    outline: none;
+  }
+  .pop__up-button-ok:hover{
+    background-color: #0066ff;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+  }
+  .pop__up-button-ok:focus{
+    outline: 0 !important;
+  }
+
+  @media (max-width: 1366){
+    .popup__description {
+      font-size: 2.5rem;
+    }
+    .pop__up-button {
+      margin-top: 20px;
+    }
+  }
+  
