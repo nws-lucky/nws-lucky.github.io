@@ -541,12 +541,24 @@ footer{
     outline: 0 !important;
   }
 
-  @media (max-width: 1366){
+  @media (max-width: 1366px){
+    .popup {
+      width: 52vw;
+    }
+    .popup__header {
+      margin-top: 60px;
+    }
     .popup__description {
       font-size: 2.5rem;
     }
     .pop__up-button {
-      margin-top: 20px;
+      margin-top: 10px;
+    }
+    .lucky__people {
+      margin-top: 160px;
+    }
+    .lucky__people-info {
+      margin-bottom: 15px;
     }
   }
   

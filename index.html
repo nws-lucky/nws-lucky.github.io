@@ -143,7 +143,7 @@
       document.getElementById("overlay").style.display = "block";
       document.getElementById("congratulation_popup").style.display = "block";
       document.getElementById("luckyPeopleFullname").innerHTML = fullname;
-      document.getElementById("luckyPeopleShortname").innerHTML = shortname;
+      document.getElementById("luckyPeopleShortname").innerHTML = `(${shortname})`;
       document.getElementById("js-container").classList.add("js-container");
       document.getElementById("js-container").style.display = "block";
       window.confettiful = new Confettiful(document.querySelector('.js-container'));
