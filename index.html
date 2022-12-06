@@ -146,7 +146,6 @@
       document.getElementById("luckyPeopleShortname").innerHTML = `(${shortname})`;
       document.getElementById("js-container").classList.add("js-container");
       document.getElementById("js-container").style.display = "block";
-      console.log("id", id);
       document.getElementById("popup_title").innerText = `Xin chúc mừng ${id}`;
       window.confettiful = new Confettiful(document.querySelector('.js-container'));
     }
@@ -240,7 +239,7 @@
           console.log(`Final Number: ${firstNumber}${secondNumber}${thirdNumber}`);
           setTimeout(()=>{
             showPopUp(data.fullname, data.shortname, data.id);
-          }, 1000)
+          }, 2000)
           break;
       }
       count--;
