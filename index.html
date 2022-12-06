@@ -39,8 +39,14 @@
 </div>
 <div class="popup" id="congratulation_popup">
   <div class="popup__content">
+    <div class="background__header">
+      <img src="img/Group 1.png" alt="">
+    </div>
     <div class="popup__header">
       <span class="popup_title" id="popup_title"></span>
+    </div>
+    <div class="popup__trophy">
+      <img src="img/035-trophy.png" alt="">
     </div>
     <div class="lucky__people">
       <div class="lucky__people-info">
@@ -180,6 +186,7 @@
      */
     btnShuffle.addEventListener('click',async (e) => {
       e.preventDefault();
+      btnShuffle.disabled  = true;
       count = 3;
       firstNumber = 0;
       secondNumber = 0;
@@ -218,27 +225,24 @@
       switch (count) {
         case 3:
           mCasino1.randomize = () => {
-            console.log(`First lucky number is: ${firstNumber}`);
             return firstNumber;
           }
           mCasino1.stop();
           break;
         case 2:
           mCasino2.randomize = () => {
-            console.log(`Second lucky number is: ${secondNumber}`);
             return secondNumber;
           }
           mCasino2.stop();
           break;
         case 1:
           mCasino3.randomize = () => {
-            console.log(`Third lucky number is: ${thirdNumber}`);
             return thirdNumber;
           }
           mCasino3.stop();
-          console.log(`Final Number: ${firstNumber}${secondNumber}${thirdNumber}`);
           setTimeout(()=>{
             showPopUp(data.fullname, data.shortname, data.id);
+            btnShuffle.disabled  = false;
           }, 2000)
           break;
       }
