@@ -50,6 +50,7 @@
     </div>
     <div class="lucky__people">
       <div class="lucky__people-info">
+        <p class="popup__lucky--id" id="luckyPeopleId"></p>
         <p class="popup__lucky--fullname" id="luckyPeopleFullname"></p>
         <span class="popup__lucky--short-name" id="luckyPeopleShortname"></span>
       </div>
@@ -148,11 +149,12 @@
     function showPopUp(fullname, shortname, id) {
       document.getElementById("overlay").style.display = "block";
       document.getElementById("congratulation_popup").style.display = "block";
+      document.getElementById("luckyPeopleId").innerHTML = `${id}`;
       document.getElementById("luckyPeopleFullname").innerHTML = fullname;
       document.getElementById("luckyPeopleShortname").innerHTML = `(${shortname})`;
       document.getElementById("js-container").classList.add("js-container");
       document.getElementById("js-container").style.display = "block";
-      document.getElementById("popup_title").innerText = `Xin chúc mừng ${id}`;
+      document.getElementById("popup_title").innerHTML = `Xin chúc mừng`;
       window.confettiful = new Confettiful(document.querySelector('.js-container'));
     }
     function closePopUp() {

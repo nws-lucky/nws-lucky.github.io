@@ -305,7 +305,6 @@ header a {
   background: url('../img/background.png');
   background-size: cover;
   height: 100%;
-  overflow: scroll;
 }
 
 #casino .content:nth-child(1) {
@@ -517,12 +516,16 @@ footer{
   .lucky__people-info { 
     margin-bottom: 30px;
   }
-  .popup__lucky--fullname{
+  .popup__lucky--fullname, .popup__lucky--id{
     font-size: 30px;
     text-align: center;
     line-height: 38px;
     font-weight: 700;
     margin-bottom: 5px;
+  }
+  .popup__lucky--id {
+    font-size: 40px;
+    font-family: 'consolas';
   }
   .popup__lucky--short-name {
     font-weight: 500;
@@ -546,7 +549,6 @@ footer{
     font-weight: 600;
   }
   .pop__up-button-ok{
-    margin-top: 25px;
     background: #094FB6;
     border-radius: 40px;
     justify-content: center;
@@ -579,6 +581,9 @@ and (max-width: 1366px) {
     width: 45%;
     aspect-ratio: 1 / 1;
   }
+  #casino {
+    overflow: scroll;
+  }
 }
 
 @media only screen   
@@ -590,6 +595,9 @@ and (max-device-width : 1024px) {
   }
   .popup__header {
     margin-top: 50px;
+  }
+  #casino {
+    overflow: scroll;
   }
 }
 @media only screen   
