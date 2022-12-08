@@ -334,10 +334,11 @@ header a {
 }
 
 .slotMachine{
+  cursor: pointer;
 	width: 120px;
-    border: 5px solid #ed1c24;
-    height: 130px;
-    display: inline-block;
+  border: 5px solid #ed1c24;
+  height: 130px;
+  display: inline-block;
 }
 
 #casino .btn-group {
@@ -621,4 +622,12 @@ and (max-width: 1605px) {
     aspect-ratio: 1 / 1;
   }
 }
+/* @media (min-width: 1920px) {
+  .content {
+    height: 100%;
+  }
+  #casino .content > div {
+    padding-top: 690px;
+  }
+} */
   

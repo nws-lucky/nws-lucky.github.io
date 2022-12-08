@@ -128,7 +128,6 @@
   
 
   <script id="codeScript5">
-    let count = 0;
     const btnShuffle = document.querySelector('#casinoShuffle');
     const btnStop = document.querySelector('#casinoStop');
     const casino1 = document.querySelector('#casino1');
@@ -169,6 +168,8 @@
     let secondNumber = 0;
     let thirdNumber = 0;
     let maxNum = 248;
+    let lengthOfNumber = 3;
+    let markNumberArr = new Array(lengthOfNumber).fill(false);
     if (window.location.hash && !isNaN(window.location.hash.substring(1))) {
       maxNum = Number(window.location.hash.substring(1));
     }
@@ -185,13 +186,22 @@
       var s = "000000000" + num;
       return s.substr(s.length - size);
     }
+
+    // 
+    function handleShowPopUp(data) {
+      setTimeout(()=>{
+          showPopUp(data.fullname, data.shortname, data.id);
+          btnShuffle.disabled  = false;
+        }, 2000)
+      markNumberArr = new Array(lengthOfNumber).fill(false);
+    }
+
     /**
      * Handle event click start lucky number machine
      */
     btnShuffle.addEventListener('click',async (e) => {
       e.preventDefault();
       btnShuffle.disabled  = true;
-      count = 3;
       firstNumber = 0;
       secondNumber = 0;
       thirdNumber = 0;
@@ -211,7 +221,6 @@
       let randomNum = data.id;
 
       let result = pad(randomNum, 3);
-      console.log(`Random number is: ${randomNum}`);
       let resultArr = result.split("").map((num) => {
         return Number(num);
       })
@@ -225,33 +234,67 @@
      * Handle event when click stop button 
      * get random number on first click
      */
+     casino1.addEventListener('click', ()=>{
+      mCasino1.randomize = () => {
+        return firstNumber;
+      }
+      mCasino1.stop();
+      markNumberArr[0] = true;
+      if(markNumberArr.findIndex(e => !e) === -1) {
+        handleShowPopUp(data);
+      }
+    })
+    casino2.addEventListener('click', ()=>{
+      mCasino2.randomize = () => {
+        return secondNumber;
+      }
+      mCasino2.stop();
+      markNumberArr[1] = true;
+      if(markNumberArr.findIndex(e => !e) === -1) {
+        handleShowPopUp(data);
+      }
+    })
+    casino3.addEventListener('click', ()=>{
+      mCasino3.randomize = () => {
+        return thirdNumber;
+      }
+      mCasino3.stop();
+      markNumberArr[2] = true;
+      if(markNumberArr.findIndex(e => !e) === -1) {
+        handleShowPopUp(data);
+      }
+    })
     btnStop.addEventListener('click', () => {
-      switch (count) {
-        case 3:
+      let firstIndex = markNumberArr.findIndex(e => !e);
+      switch (firstIndex) {
+        case 0:
           mCasino1.randomize = () => {
             return firstNumber;
           }
+          markNumberArr[0] = true;
           mCasino1.stop();
+          
           break;
-        case 2:
+        case 1:
           mCasino2.randomize = () => {
             return secondNumber;
           }
+          markNumberArr[1] = true;
           mCasino2.stop();
           break;
-        case 1:
+        case 2:
           mCasino3.randomize = () => {
             return thirdNumber;
           }
+          markNumberArr[2] = true;
           mCasino3.stop();
-          setTimeout(()=>{
-            showPopUp(data.fullname, data.shortname, data.id);
-            btnShuffle.disabled  = false;
-          }, 2000)
           break;
       }
-      count--;
+      if(markNumberArr.findIndex(e => !e) === -1) {
+        handleShowPopUp(data);
+      }
     });
+    
   </script>
 
   <script id="codeScript7">
@@ -280,7 +323,6 @@
       this.el.appendChild(containerEl);
       
       this.containerEl = containerEl;
-      console.log(containerEl)
 
     };
 
